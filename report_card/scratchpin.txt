@@ -1,0 +1,14 @@
+Generate Scratch Card PINs:
+You'll need to generate unique scratch card PINs for each student. These PINs should be securely stored in the database.
+
+Store the PINs:
+Store the scratch card PINs in the database and associate them with each student. The PIN should be stored in a hashed form for security.
+
+Allow Students to Enter the PIN:
+Create a form where students can enter their scratch card PIN.
+
+Verify the PIN:
+Once the student enters the PIN, you will check if it matches the stored PIN for that student. If it matches, grant access to their report.
+
+Invalidate the PIN after Use:
+After the student successfully enters their PIN and views their report, mark the PIN as used or delete it so it cannot be reused.

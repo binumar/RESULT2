@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
+    <!-- Card -->
+    {% for card in scratch_cards %}
+      <div class="bg-white p-6 rounded-lg shadow-lg">
+          <h3 class="text-lg font-semibold text-gray-800">{{card.student}}</h3>
+          <p class="text-gray-600">Class: {{card.level}}</p>
+          <p class="text-gray-600">Session: {{card.session}}</p>
+          <p class="text-gray-600">Term: {{card.term}}</p>
+      
+          <!-- Scratch Card Pin -->
+          <div class="mt-4">
+            <span class="block text-sm font-medium text-gray-500">Scratch Card Pin</span>
+            <p class="bg-gray-200 text-center text-xl font-bold py-2 rounded-md mt-1">{{card.pin}}</p>
+          </div>
+      
+          <!-- 3 Steps Instructions -->
+          <div class="mt-6">
+            <h4 class="font-semibold text-gray-700">How to Use Your Pin:</h4>
+            <ol class="list-decimal list-inside mt-2 space-y-2 text-gray-600">
+              <li>Open Chrome Browser on Computer or Android</li>
+              <li>Go to the results portal on our www.fstcgresult.pythonanywhere.com</li>
+              <li>Enter the scratch card pin in the provided field.</li>
+              <li>Click "Check Resul" to view your results for this term.</li>
+            </ol>
+          </div>
+      </div>
+    {% endfor %}
+  </div>
+
+<script src="https://cdn.tailwindcss.com"></script>
+</body>
+</html>

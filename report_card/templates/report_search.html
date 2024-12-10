@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Result Checker</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <header class="mb-8 pt-12">
+        <h1 class="text-4xl font-bold text-center text-blue-600">Federal Science And Technical Collage Gashua</h1>
+        <h1 class="text-xl font-bold text-center text-blue-600">Online Result  Portal</h1>
+        <p class="text-center text-gray-600">Address: Yusufari Road Gashua Yobe State</p>
+        <p class="text-center text-gray-600">Phone: (+234) 987-7890 | Email: info@fstcg.com.ng</p>
+    </header>
+    
+    <div>
+        <div class="flex justify-center items-center mb-4">
+            <img src="data:image/png;base64,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" alt="School Logo" class="h-24 w-28 h-28 rounded-full">
+        </div>
+        
+        <div class="flex items-center justify-center">
+            <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-sm">
+                <h1 class="text-2xl font-semibold text-center text-blue-600 mb-4">Student Result Checker</h1>
+    
+                <!-- Scratch Pin Form -->
+                <form id="scratchPinForm" action="." method="GET">
+                    {% csrf_token %}
+                    
+                    <div class="mb-4">
+                        <label for="scratchPin" class="block text-gray-700 font-medium mb-2">Enter Scratch Pin</label>
+                        <input type="text" id="scratchPin" name="scratchPin" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Enter your pin" maxlength="11" required>
+                        <p id="pinError" class="text-red-500 text-sm mt-1 hidden">Invalid pin. Please enter a 6-digit pin.</p>
+                    </div>
+    
+                    <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 focus:outline-none">Check Results</button>
+                    <!-- <input type="submit" value="check result"> -->
+                </form>
+              
+            </div>
+        </div>
+        <!-- Result Display (Hidden initially) -->
+        {% if report %}
+            <div class="container mx-auto bg-white p-4 mt-6 rounded-lg shadow-lg w-3/12">
+                <div id="resultSection" class="">
+                    <h2 class="text-xl font-semibold text-center text-green-600">Student Information</h2>
+                    <div class="mt-4">
+                        <p class="text-lg text-gray-700">Student Name: <span id="studentName" class="font-semibold">{{report.student}}</span></p>
+                        <p class="text-lg text-gray-700">Class: <span id="subject" class="font-semibold">{{report.level}}</span></p>
+                    </div>
+                    <!-- <input type="submit" value="view full result"> -->
+                    <button >View Full Result</button>
+                    <a href="{% url 'reports:checked-result' report.id %}" id="viewResultBtn" class="mt-4 w-full bg-green-600 text-white text-center font-semibold py-2 px-4 rounded-lg hover:bg-green-700 focus:outline-none inline-block">View Full Result</a>
+                </div>
+            </div>
+        {% else %}
+            <div class="container mx-auto bg-white p-2 mt-6 rounded-lg shadow-lg w-3/12 bg-red-200">
+                <div id="resultSection" class="">
+                    <h2 class="text-lg font-semibold text-center text-rose-600">Result Not Found Or invalid Pin</h2>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+    
+    <script>
+        const scratchPinForm = document.getElementById('scratchPinForm');
+        const scratchPinInput = document.getElementById('scratchPin');
+        const resultSection = document.getElementById('resultSection');
+        const pinError = document.getElementById('pinError');
+        const viewResultBtn = document.getElementById('viewResultBtn');
+    
+        scratchPinForm.addEventListener('submit', function (event) {
+            // event.preventDefault();
+    
+            const pin = scratchPinInput.value.trim();
+    
+            // Validate Scratch Pin (Must be 6 digits)
+            if (pin.length !== 11 || isNaN(pin)) {
+                pinError.classList.remove('hidden');
+                return;
+            }
+    
+            pinError.classList.add('hidden');
+            showResult(); // Simulate showing the result if pin is correct
+        });
+    
+        // Show result details when the button is clicked
+        viewResultBtn.addEventListener('click', function() {
+            alert('Showing full result details...');
+            // You can implement more logic here to show additional results
+        });
+        
+        // resultSection.classList.remove('hidden');
+    
+        // function showResult() {
+        //     resultSection.classList.remove('hidden');
+        //     sleep(10000)
+        // }
+    </script>
+</body>
+</html>

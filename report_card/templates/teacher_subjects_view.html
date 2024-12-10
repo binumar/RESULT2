@@ -1,0 +1,26 @@
+{% extends 'dashboards/base.html' %}
+
+
+{% block content %}
+    <div class="w-full mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+        <table class="min-w-full table-auto">
+            <thead class="bg-gray-200">
+                <tr>
+                    <th class="px-6 py-3 text-left text-sm font-semibold text-gray-600">Subject</th>
+                    <th class="px-6 py-3 text-left text-sm font-semibold text-gray-600">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for subject in subjects %}
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="px-6 py-4 text-sm text-gray-800">{{ subject.name }}</td>
+                        <td class="px-6 py-4 text-sm">
+                            <a href="{% url 'reports:score_students' grade_level_id=level.id subject_id=subject.id %}" class="text-blue-600 hover:text-blue-800">Upload</a> |
+                            <a href="#" class="text-red-600 hover:text-red-800">View</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

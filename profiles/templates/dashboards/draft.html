@@ -1,0 +1,209 @@
+{% extends 'dashboards/base.html' %}
+
+{% block content %}
+    <div class="content w-full bg-gray-200 relative">
+        <div class="bg-cyan-700 p-2 flex justify-between">
+            <div class="lef font-bold text-gray-100 space-y-1 border p-2">
+                <div class="bg-white h-1 w-6"></div>
+                <div class="bg-white h-1 w-6"></div>
+                <div class="bg-white h-1 w-6"></div>
+            </div>
+            <div class="flex items-center gap-1 px-2 text-gray-100">
+                <div class="rounded-full bg-teal-900">
+                    <h1 class="font-bold text-center w-8 h-8">A</h1>
+                </div>
+                <h2 class="font-semibold text-lg">HI, {{student.full_name}}</h2>
+            </div>
+        </div>
+        {% for message in messages %}
+        <div class="bg-green-500 text-white font-semibold text-center">{{message}}</div>
+        {% endfor %}
+
+        <!-- Dashboard Header -->
+        <header class="mb-2">
+            <h1 class="text-xl font-bold text-blue-600 p-2">Student Dashboard</h1>
+        </header>
+
+        <!-- Dashboard Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8  px-4">
+            <!-- Number of Students -->
+            <!-- <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h2 class="text-xl font-bold text-gray-700">{{student.full_name}}</h2>
+                <p class="text-4xl text-blue-600 mt-4">{{student.level}}</p>
+            </div> -->
+
+            <!-- Number of Available Exams -->
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h2 class="text-2xl font-bold text-gray-700">Recent Exams</h2>
+                <p class="text-4xl text-green-600 mt-4">1</p>
+            </div>
+            <!-- Add Exam -->
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h2 class="text-2xl font-bold text-gray-700">Available Exams</h2>
+                <button class="mt-4 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">View</button>
+            </div>
+            <!-- Number of Available Exams -->
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h2 class="text-2xl font-bold text-gray-700">Upcomming Exams</h2>
+                <p class="text-4xl text-green-600 mt-4">5</p>
+            </div>
+        </div>
+
+        <!-- Additional Dashboard Content -->
+        <!-- <div class="bg-white p-6 rounded-lg shadow-lg mx-4">
+            <h2 class="text-2xl font-bold text-gray-700">Recent Activity</h2>
+            <p class="text-gray-600 mt-4">Details about recent exams, student registrations, etc.</p>
+        </div> -->
+        <div>
+            <div>
+                <div class="absolute bottom-0 left-7">
+                    <h1>Footer</h1>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrator Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Main Wrapper -->
+    <div class="flex min-h-screen">
+
+        <!-- Sidebar -->
+        <div class="w-64 bg-gray-900 text-white p-6">
+            <h2 class="text-2xl font-bold mb-8 text-center">Admin Dashboard</h2>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#" class="block py-2 px-4 rounded-lg hover:bg-gray-700">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block py-2 px-4 rounded-lg hover:bg-gray-700">User Management</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block py-2 px-4 rounded-lg hover:bg-gray-700">System Logs</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block py-2 px-4 rounded-lg hover:bg-gray-700">Reports</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block py-2 px-4 rounded-lg hover:bg-gray-700">Settings</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="flex-1 p-8">
+
+            <!-- Dashboard Header -->
+            <div class="flex justify-between items-center mb-6">
+                <h1 class="text-3xl font-semibold text-gray-800">Welcome, Admin</h1>
+                <div>
+                    <button class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg">
+                        Logout
+                    </button>
+                </div>
+            </div>
+
+            <!-- Overview Section -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                
+                <!-- Card 1 - Active Users -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold text-gray-800">Active Users</h3>
+                    <p class="text-2xl font-bold text-green-600 mt-2">1,250</p>
+                </div>
+
+                <!-- Card 2 - Total Reports -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold text-gray-800">Total Reports</h3>
+                    <p class="text-2xl font-bold text-blue-600 mt-2">350</p>
+                </div>
+
+                <!-- Card 3 - System Alerts -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold text-gray-800">System Alerts</h3>
+                    <p class="text-2xl font-bold text-red-600 mt-2">5</p>
+                </div>
+            </div>
+
+            <!-- Recent Activity Section -->
+            <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Recent Activity</h3>
+                
+                <!-- Activity Item 1 -->
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-gray-300 rounded-full mr-4">
+                        <img src="https://via.placeholder.com/50" alt="User Profile" class="w-full h-full object-cover rounded-full">
+                    </div>
+                    <div>
+                        <p class="text-gray-800 font-semibold">New User Registered</p>
+                        <p class="text-gray-500 text-sm">John Doe has signed up</p>
+                        <p class="text-sm text-gray-400 mt-1">10 minutes ago</p>
+                    </div>
+                </div>
+
+                <!-- Activity Item 2 -->
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-gray-300 rounded-full mr-4">
+                        <img src="https://via.placeholder.com/50" alt="User Profile" class="w-full h-full object-cover rounded-full">
+                    </div>
+                    <div>
+                        <p class="text-gray-800 font-semibold">Report Generated</p>
+                        <p class="text-gray-500 text-sm">Monthly system report generated</p>
+                        <p class="text-sm text-gray-400 mt-1">2 hours ago</p>
+                    </div>
+                </div>
+
+                <!-- Activity Item 3 -->
+                <div class="flex items-center">
+                    <div class="w-12 h-12 bg-gray-300 rounded-full mr-4">
+                        <img src="https://via.placeholder.com/50" alt="User Profile" class="w-full h-full object-cover rounded-full">
+                    </div>
+                    <div>
+                        <p class="text-gray-800 font-semibold">System Alert</p>
+                        <p class="text-gray-500 text-sm">Database connection failed</p>
+                        <p class="text-sm text-gray-400 mt-1">1 day ago</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions Section -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Action 1 - Create New User -->
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:bg-gray-50">
+                    <h3 class="text-lg font-semibold text-gray-800">Create New User</h3>
+                    <p class="text-sm text-gray-500 mt-2">Add a new user to the system</p>
+                    <button class="mt-4 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg">Create</button>
+                </div>
+
+                <!-- Action 2 - View Reports -->
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:bg-gray-50">
+                    <h3 class="text-lg font-semibold text-gray-800">View Reports</h3>
+                    <p class="text-sm text-gray-500 mt-2">Access system-generated reports</p>
+                    <button class="mt-4 bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg">View</button>
+                </div>
+
+                <!-- Action 3 - System Settings -->
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:bg-gray-50">
+                    <h3 class="text-lg font-semibold text-gray-800">System Settings</h3>
+                    <p class="text-sm text-gray-500 mt-2">Adjust system preferences and settings</p>
+                    <button class="mt-4 bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-lg">Settings</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

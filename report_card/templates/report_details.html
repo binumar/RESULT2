@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  {% block content %}
+  <h2>Report for {{ student.name }}</h2>
+
+  <p>Session: {{ report.session.name }}</p>
+  <p>Term: {{ report.term.name }}</p>
+  <p>Overall Total: {{ report.overall_total }}</p>
+  <p>Position: {{ report.position }}</p>
+
+  <!-- Display other report data as needed -->
+{% endblock %}
+</body>
+</html>
