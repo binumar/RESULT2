@@ -108,79 +108,79 @@ from django.contrib import messages
 def bulk_create(request):
 
     # List of students with user-related information (username, email, phone number, address)
-    students_data = [
-        {"full_name": "ABBA M. AJI", "username": "FSTCG2024038", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
-        {"full_name": "ADAMA BUKAR MAIGARI", "username": "FSTCG2024039", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
-        {"full_name": "AISHA HARUNA ABUBAKAR", "username": "FSTCG2024043", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
-        {"full_name": "ALI GARBA", "username": "FSTCG2024041", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
-        {"full_name": "ZAINAB SAFIYANU BULAMA", "username": "FSTCG2024067", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
-        {"full_name": "USMAN BABA SHEHU", "username": "FSTCG2024066", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
-        {"full_name": "UMAR SAJE MUSA", "username": "FSTCG2024065", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
-        {"full_name": "UMAR ABACHA", "username": "FSTCG2024064", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
-        {"full_name": "SULEIMAN ALI KADUGUM", "username": "FSTCG2024063", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
-        {"full_name": "SERAH HYGINUS", "username": "FSTCG2024062", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
-        {"full_name": "SALEH SULEIMAN MAKINTA", "username": "FSTCG2024061", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
-        {"full_name": "MUSA YAWALE", "username": "FSTCG2024060", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
-        {"full_name": "MUSA MUHAMMAD KADIGA", "username": "FSTCG2024059", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
-        {"full_name": "MUSA IBRAHIM AZAM", "username": "FSTCG2024058", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
-        {"full_name": "MUHAMMAD TAHIR", "username": "FSTCG2024057", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
-        {"full_name": "MUHAMMAD SHEHU YUSUF", "username": "FSTCG2024056", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
-        {"full_name": "MUHAMMAD USMAN KARAGE", "username": "FSTCG2024055", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
-        {"full_name": "MUHAMMAD ABDULMUMINI", "username": "FSTCG2024054", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
-        {"full_name": "KHALID SALISU YAHAYYA", "username": "FSTCG2024053", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
-        {"full_name": "ISHAQ ISHA", "username": "FSTCG2024052", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
-        {"full_name": "IBRAHIM KHALIL HASSAN", "username": "FSTCG2024051", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
-        {"full_name": "HANS MUSA FABIAN", "username": "FSTCG2024050", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
-        {"full_name": "HADIZA ISAH KAGAMU", "username": "FSTCG2024049", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
-        {"full_name": "FATIMA UMAR MUSA", "username": "FSTCG2024048", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
-        {"full_name": "FATIMA UMAR GARBA", "username": "FSTCG2024047", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
-        {"full_name": "FATIMA MUHAMMAD", "username": "FSTCG2024046", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
-        {"full_name": "FATIMA BABANGIDA TALLE", "username": "FSTCG2024045", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
-        {"full_name": "FATIMA ALI WAKILI", "username": "FSTCG2024044", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
-        {"full_name": "ALIYU ALI UMAR", "username": "FSTCG2024042", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
-        {"full_name": "AISHA KAIGAMA UMAR", "username": "FSTCG2024040", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
-        {"full_name": "AHMAD IDRIS ABUBAKAR", "username": "FSTCG2024043", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"}
+    # students_data = [
+    #     {"full_name": "ABBA M. AJI", "username": "FSTCG2024038", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
+    #     {"full_name": "ADAMA BUKAR MAIGARI", "username": "FSTCG2024039", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
+    #     {"full_name": "AISHA HARUNA ABUBAKAR", "username": "FSTCG2024043", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
+    #     {"full_name": "ALI GARBA", "username": "FSTCG2024041", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
+    #     {"full_name": "ZAINAB SAFIYANU BULAMA", "username": "FSTCG2024067", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
+    #     {"full_name": "USMAN BABA SHEHU", "username": "FSTCG2024066", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
+    #     {"full_name": "UMAR SAJE MUSA", "username": "FSTCG2024065", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
+    #     {"full_name": "UMAR ABACHA", "username": "FSTCG2024064", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
+    #     {"full_name": "SULEIMAN ALI KADUGUM", "username": "FSTCG2024063", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
+    #     {"full_name": "SERAH HYGINUS", "username": "FSTCG2024062", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
+    #     {"full_name": "SALEH SULEIMAN MAKINTA", "username": "FSTCG2024061", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
+    #     {"full_name": "MUSA YAWALE", "username": "FSTCG2024060", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
+    #     {"full_name": "MUSA MUHAMMAD KADIGA", "username": "FSTCG2024059", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
+    #     {"full_name": "MUSA IBRAHIM AZAM", "username": "FSTCG2024058", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
+    #     {"full_name": "MUHAMMAD TAHIR", "username": "FSTCG2024057", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
+    #     {"full_name": "MUHAMMAD SHEHU YUSUF", "username": "FSTCG2024056", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
+    #     {"full_name": "MUHAMMAD USMAN KARAGE", "username": "FSTCG2024055", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
+    #     {"full_name": "MUHAMMAD ABDULMUMINI", "username": "FSTCG2024054", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
+    #     {"full_name": "KHALID SALISU YAHAYYA", "username": "FSTCG2024053", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
+    #     {"full_name": "ISHAQ ISHA", "username": "FSTCG2024052", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
+    #     {"full_name": "IBRAHIM KHALIL HASSAN", "username": "FSTCG2024051", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
+    #     {"full_name": "HANS MUSA FABIAN", "username": "FSTCG2024050", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
+    #     {"full_name": "HADIZA ISAH KAGAMU", "username": "FSTCG2024049", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
+    #     {"full_name": "FATIMA UMAR MUSA", "username": "FSTCG2024048", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
+    #     {"full_name": "FATIMA UMAR GARBA", "username": "FSTCG2024047", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
+    #     {"full_name": "FATIMA MUHAMMAD", "username": "FSTCG2024046", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
+    #     {"full_name": "FATIMA BABANGIDA TALLE", "username": "FSTCG2024045", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
+    #     {"full_name": "FATIMA ALI WAKILI", "username": "FSTCG2024044", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
+    #     {"full_name": "ALIYU ALI UMAR", "username": "FSTCG2024042", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
+    #     {"full_name": "AISHA KAIGAMA UMAR", "username": "FSTCG2024040", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"},
+    #     {"full_name": "AHMAD IDRIS ABUBAKAR", "username": "FSTCG2024043", "password": "CBT.2024", "level": "JSS 2B","email":"STUDENT@GMAIL.COM"}
         
-        # {"username": "student1", "email": "student1@example.com", "phone_number": "1234567890", "address": "123 Main St"},
-        # {"username": "student2", "email": "student2@example.com", "phone_number": "0987654321", "address": "456 Elm St"},
-        # Add more students as needed
-    ]
+    #     # {"username": "student1", "email": "student1@example.com", "phone_number": "1234567890", "address": "123 Main St"},
+    #     # {"username": "student2", "email": "student2@example.com", "phone_number": "0987654321", "address": "456 Elm St"},
+    #     # Add more students as needed
+    # ]
 
-    # Default password for all users
-    default_password = "CBT.2024"  # Change this to whatever default password you want
+    # # Default password for all users
+    # default_password = "CBT.2024"  # Change this to whatever default password you want
 
-    # # Step 1: Create Custom Users (with password hashing)
-    users = []
-    for student in students_data:
-        user = User(
-            username=student["username"],
-            email=student["email"],
-            is_student =True
-        )
-        # Set the default password and hash it
-        user.set_password(default_password)  # This hashes the password
-        users.append(user)
+    # # # Step 1: Create Custom Users (with password hashing)
+    # users = []
+    # for student in students_data:
+    #     user = User(
+    #         username=student["username"],
+    #         email=student["email"],
+    #         is_student =True
+    #     )
+    #     # Set the default password and hash it
+    #     user.set_password(default_password)  # This hashes the password
+    #     users.append(user)
 
-    # Bulk create users
-    User.objects.bulk_create(users)
+    # # Bulk create users
+    # User.objects.bulk_create(users)
 
-    # Step 2: Create Profiles for each user
-    profiles = []
-    for index, student in enumerate(students_data):
-        user = users[index]  # Get the corresponding user object
-        level = Level.objects.get(name = student["level"])
-        profile = StudentProfile(
-            user=user,
-            full_name=student["full_name"],
-            level=level,
-            year_of_addmission = '2023'
-        )
-        profiles.append(profile)
+    # # Step 2: Create Profiles for each user
+    # profiles = []
+    # for index, student in enumerate(students_data):
+    #     user = users[index]  # Get the corresponding user object
+    #     level = Level.objects.get(name = student["level"])
+    #     profile = StudentProfile(
+    #         user=user,
+    #         full_name=student["full_name"],
+    #         level=level,
+    #         year_of_addmission = '2023'
+    #     )
+    #     profiles.append(profile)
 
-    # Bulk create profiles
-    StudentProfile.objects.bulk_create(profiles)
+    # # Bulk create profiles
+    # StudentProfile.objects.bulk_create(profiles)
 
-    print("Users and profiles created successfully.")
+    # print("Users and profiles created successfully.")
 
 
     return render(request, 'data/bulk.html')

@@ -227,6 +227,7 @@ def generate_class_result(request, class_level_id):
     session = calender.session
     term = calender.term
     next_term = calender.next_term_begins
+    closes_on = calender.end
     
     # Retrieve the class level and associated students
     class_level = get_object_or_404(Level, id=class_level_id)
@@ -237,6 +238,7 @@ def generate_class_result(request, class_level_id):
 
     # Calculate total score for each student
     for student in students:
+        out_of = StudentProfile.objects.filter(level = student.level).count()
         scores = SubjectEntry.objects.filter(student=student)
         total_score = sum(score.total for score in scores)
         student_scores.append({
@@ -282,6 +284,8 @@ def generate_class_result(request, class_level_id):
         # Use set() to update the many-to-many relationship with the new subjects
         report.subjects.set(student_score['scores'])
         report.report_pin = scratch_pin.pin
+        report.closes_on = closes_on
+        report.out_of = out_of
         report.save()
 
     return redirect('reports:students-reports')
