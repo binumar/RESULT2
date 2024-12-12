@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from profiles.models import StudentProfile, Level, AcademicCalender, Term, Session
 from .models import SubjectEntry, Subject, Report, Pin
 from .forms import PinVerificationForm
-from profiles.models import Subject
+from profiles.models import Subject, SchoolInfo
 from django.db.models import Q
 
 from .forms import SubjectEntryForm
@@ -226,7 +226,8 @@ def generate_class_result(request, class_level_id):
     calender = AcademicCalender.objects.get(is_active=True)
     session = calender.session
     term = calender.term
-    next_term = calender.next_term_begins
+    # next_term = calender.next_term_begins
+    next_term = '2024-01-05'
     closes_on = calender.end
     
     # Retrieve the class level and associated students
@@ -284,7 +285,7 @@ def generate_class_result(request, class_level_id):
         # Use set() to update the many-to-many relationship with the new subjects
         report.subjects.set(student_score['scores'])
         report.report_pin = scratch_pin.pin
-        report.closes_on = closes_on
+        report.closes_on = '2024-12-11'
         report.out_of = out_of
         report.save()
 
@@ -317,16 +318,18 @@ def class_reports(request):
 
 
 def student_report(request, student_id):
+    school = SchoolInfo.objects.get(id =1)
     my_student = StudentProfile.objects.filter(id = student_id)
     report = Report.objects.filter(is_approved =True, student = student_id).first()
     print(my_student)
     context = {
         'report':report,
+        'school':school,
     }
     return render(request, 'student_report.html',context)
 
 def scratch_cards(request):
-    scratch_cards = Report.objects.all()
+    scratch_cards = Report.objects.filter(level = 4)
     context = {
         'scratch_cards':scratch_cards,
     }
@@ -399,10 +402,12 @@ def verify_pin_and_get_report(request):
 
 
 def checked_result(request, report_id):
-    
+    school = SchoolInfo.objects.get(id =1)
+    print(school.logo)
     report = Report.objects.get(id=report_id)
     context = {
-        'report':report
+        'report':report,
+        'school':school,
     }
     return render(request, 'checked_result.html',context)
 
@@ -410,9 +415,9 @@ def checked_result(request, report_id):
 def uploaded_score(request):
     subject = Subject.objects.get(id = 2)
     level = Level.objects.get(id =5)
-    # scores = SubjectEntry.objects.filter(subject = subject, level = level)
+    scores = SubjectEntry.objects.filter(subject = subject, level = level)
     # scores = SubjectEntry.objects.filter(Q(ca1=0,ca2=0,exam=0) | Q(ca1=0)| Q(ca2=0)| Q(exam=0))
-    scores = SubjectEntry.objects.filter(subject = subject)
+    # scores = SubjectEntry.objects.filter(subject = subject)
     context = {
         'scores':scores,
         'level':level,

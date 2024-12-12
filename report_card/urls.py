@@ -5,7 +5,7 @@ app_name = 'reports'
 
 urlpatterns = [
     path('scratch-cards/', views.scratch_cards, name='scratch-cards'),
-    path('report-search/', views.report_search, name='report-search'),
+    path('check/', views.report_search, name='check'),
     path('generate-result-view/', views.generate_result_view, name='generate-result-view'),
     path('form-master-upload-view/', views.form_master_upload_view, name='form-master-upload-view'),
     path('students-reports/', views.students_reports, name='students-reports'),

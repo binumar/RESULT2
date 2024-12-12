@@ -137,3 +137,7 @@ class AdminProfile(models.Model):
     address = models.TextField(max_length=1000)
     def __str__(self):
         return f"{self.full_name}"
+    
+class SchoolInfo(models.Model):
+    name = models.CharField(max_length=255)
+    logo = models.FileField(upload_to='images')
